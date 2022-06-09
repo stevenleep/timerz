@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timer</title>
+  </head>
+  <div id="app"></div>
+  <script type="module">
+    import { Timer } from "./index.js";
+
+    const timer = new Timer();
+
+    if (timer) {
+      injectMask(document.getElementById("app"));
+    }
+
+    const testTimer = Symbol("testTimer");
+    let counter = 1;
+
+    timer.addTimer(testTimer, {
+      timeout: 1000,
+      handler() {
+        injectMask(document.getElementById("app"), counter);
+        if (counter >= 5) {
+          timer.clearTimer(testTimer);
+          injectMask(document.getElementById("app"), "Timer cleared");
+          return;
+        }
+        counter++;
+      },
+    });
+
+    //
+    function injectMask(el, value) {
+      const mask = document.createElement("div");
+      mask.classList.add("timer-mask");
+
+      mask.innerHTML = value || "Timer is running";
+
+      el.appendChild(mask);
+    }
+  </script>
+  <body></body>
+</html>

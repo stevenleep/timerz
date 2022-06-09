@@ -4,7 +4,7 @@ use setInterval safely in your application
 
 ## Usage
 
-### register
+#### register
 ```typescript
 const timer = new Timer();
 
@@ -16,7 +16,7 @@ timer.addTimer(taskName, {
 });
 ```
 
-### cancel
+#### cancel
 ```typescript
 timer.clearTimer(taskName);
 ```

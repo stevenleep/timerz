@@ -4,6 +4,13 @@ use setInterval safely in your application
 
 ## Usage
 
+#### NPM
+- [npm package](https://www.npmjs.com/package/timerz)
+#### Install
+```bash
+npm install timerz
+# pnpm install timerz
+```
 #### register
 ```typescript
 const timer = new Timer();
